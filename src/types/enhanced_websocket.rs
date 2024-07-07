@@ -2,7 +2,7 @@ use serde::{Deserialize, Serialize};
 use solana_sdk::pubkey::Pubkey;
 use solana_transaction_status::EncodedTransactionWithStatusMeta;
 
-#[derive(Debug, Clone, PartialEq, Default, Eq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Default, Eq, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct TransactionSubscribeFilter {
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -28,7 +28,7 @@ impl TransactionSubscribeFilter {
     }
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub enum UiEnhancedTransactionEncoding {
     Base58,
@@ -38,7 +38,7 @@ pub enum UiEnhancedTransactionEncoding {
     JsonParsed,
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub enum TransactionCommitment {
     Processed,
@@ -46,7 +46,7 @@ pub enum TransactionCommitment {
     Finalized,
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub enum TransactionDetails {
     Full,
@@ -55,7 +55,7 @@ pub enum TransactionDetails {
     None,
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct TransactionSubscribeOptions {
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -82,7 +82,7 @@ impl Default for TransactionSubscribeOptions {
     }
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct RpcTransactionsConfig {
     pub filter: TransactionSubscribeFilter,
